@@ -1,0 +1,31 @@
+
+
+{
+        "Items": [{
+                        "item_name": "Masala Dosa",
+                        "item_image": "images/masaladosa.jpg",
+                        "item_rate": 50
+                },
+                {
+                        "item_name": "Hot Coffee",
+                        "item_image": "images/hotcoffee.jpg",
+                        "item_rate": 20
+                }, {
+                        "item_name": "Cold Coffe",
+                        "item_image": "images/coldcoffee.jpg",
+                        "item_rate": 80
+                }, {
+                        "item_name": "Grilled Sandwitch",
+                        "item_image": "images/grilledsandwitch.jpg",
+                        "item_rate": 70
+                }, {
+                        "item_name": "Pizza",
+                        "item_image": "images/pizza.jpg",
+                        "item_rate": 100
+                }, {
+                        "item_name": "Burger",
+                        "item_image": "images/Burger.jpg",
+                        "item_rate": 60
+                }
+        ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title ng-bind="myTitle"></title>
+	<link rel="stylesheet" type="text/css" href="../css/libs/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<script src="../js/libs/angular.min.js"></script>
+</head>
+<body>
+<header class="header1">
+	<div class="container-fluid text-center">
+		<h1>Hotel Golden</h1>
+		<address>Kalewadi, Pune- 411017</address>
+	</div>
+</header>
+
+
+ <div class="container-fluid">
+<div class="row" ng-controller="ctr">
+  
+  <div class="col-sm-6">
+    <div class="card">
+    <h5 class="card-header text-center">Menu</h5>
+      <div class="card-body">
+      <div class="card-title row">
+      	<span class="col-sm-1 "></span>
+      	<span class="col-sm-7 "><h6>Item Name</h6></span>
+      	<span class="col-sm-2 "><h6>Item Rate</h6></span>
+      	<span class="col-sm-2"><h6>Item Qty</h6></span>
+      
+      </div>
+
+    <ul>
+    	<li class="row" ng-repeat="x in items">
+
+    		<span class="col-sm-2">
+  	  			<img ng-src="{{x.item_image}}" width="50" height="50">
+    		</span>
+    		<span class="col-sm-6">{{x.item_name}}</span>
+    		<span class="col-sm-2">{{x.item_rate}}</span>
+    		<span class="col-sm-2 text-center">
+
+    			<select ng-model="itemq" ng-change="add(x.item_name,itemq)">
+						<option ng-repeat="x in option">{{x}}</option>
+				</select>
+  		</li>
+  	</ul>
+  	  </div>
+  		<div >
+		<button class="button1" ng-hide="showForm" ng-click="showForm = true">Add New Item</button>
+
+
+   	<form ng-show="showForm" ng-submit="submitForm()">
+  <div class="form-group">
+    <label for="Itemname">Item Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Enter item name" ng-model="item_name" >
+    
+  </div>
+  <div class="form-group">
+    <label for="Item rate">Item Rate</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter item rate" ng-model="item_rate">
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputFile">Item Image</label>
+    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" ng-model="item_image">
+  </div>
+    
+  <button type="submit" class="btn btn-primary" ng-model="btn" ng-click="addItem(item_name,item_rate,item_image)">Submit</button>
+</form>
+      	</div>
+     
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+        <h5 class="card-header text-center">Bill</h5>
+      <div class="card-body">
+
+      <div class="card-title row">
+      	<span class="col-sm-4 "><h6>Bill No : {{bno}}</h6></span>
+      	<span class="col-sm-4 "><h6>Date : {{date | date:'yyyy-MM-dd'}}</h6></span>
+      	<span class="col-sm-4"><h6>Token No : {{tno}}</h6></span>
+      
+      </div>
+      <table class="table">
+  <thead>
+    <tr>
+      <th>Sr No</th>
+      <th>Item</th>
+      <th>Rate</th>
+      <th>Qty</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="x in res">
+    <td>{{x.sr_no}}</td>
+    <td>{{x.item_name}}</td>
+    <td>{{x.item_rate}}</td>
+    <td>{{x.item_qty}}</td>
+    <td>{{x.item_amount}}</td>
+  </tr>
+  <tr>
+ <th colspan="3">Total Qty</td>
+  <td colspan="4">{{totalqty}}</td>
+  </tr>
+  <tr>
+  <th colspan="4">Sub Total</td>
+  <td>{{subtotal}}</td>
+  </tr>
+  <tr>
+  <th colspan="4">CGST: 9.0% @ {{subtotal}}</td>
+  <td>{{subtotal1}}</td>
+  </tr>
+  <tr>
+  <th colspan="4">SGST: 9.0% @ {{subtotal}}</td>
+  <td>{{subtotal1}}</td>
+  </tr>
+  <tr>
+  <th colspan="4">Total Bill</td>
+  <td>{{bill1}}</td>
+  </tr>
+    <tr>
+  <th colspan="4">Grand Total</td>
+  <td>{{bill2}}</td>
+  </tr>
+
+
+  </tbody>
+</table>
+		<div>
+        	<a href="#" class="btn btn-primary">Print</a>
+      	</div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+</div>
+
+<script src="../js/libs/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+<script src="../js/libs/bootstrap.min.js"></script>
+
+<script src="../js/index.js"></script>
+</body>
+</html>
