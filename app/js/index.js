@@ -1,9 +1,13 @@
 var app=angular.module('app',[]);
 app.run(function($rootScope){
   $rootScope.myTitle = "Angular App";
+  $rootScope.date = new Date();
+  $rootScope.bno = 1212;
+  $rootScope.tno = 50;
 });
 
 app.controller('ctr',function($scope,$http){
+    $scope.hideFlag = true;
 	var arr;
 	
 	 $http({
@@ -18,10 +22,6 @@ app.controller('ctr',function($scope,$http){
     });
 
 
-
-
-
-    
 	var res=[];
 	var cnt=0;
     $scope.option=[0,1,2,3,4,5];
@@ -101,10 +101,10 @@ app.controller('ctr',function($scope,$http){
 };
 
 $scope.showForm = false;
-    $scope.item_name = "";
-    $scope.item_rate = "";
-    $scope.item_image = "";
-    $scope.submitForm = function() {
+        $scope.item_name = "";
+        $scope.item_rate = "";
+        $scope.item_image = "";
+        $scope.submitForm = function() {
     	$scope.item_name = "";
     	$scope.item_rate = "";
     	$scope.item_image = "";
@@ -114,11 +114,23 @@ $scope.showForm = false;
  $scope.addItem=function(x,y,z){
  	var obj={
 		    "item_name": x,
-		    "item_image": y,
+		    "item_image":y,
             "item_rate": z
-                };
-                arr.push(obj);
-                $scope.items=arr;
+            };
+            arr.push(obj);
+            $scope.items=arr;
  	};
+
+    $scope.printMe = function(){
+             document.getElementById("printbtn").style.display = 'none';
+             var printContents = document.getElementById("printId").innerHTML;
+             var originalContents = document.body.innerHTML;
+             document.body.innerHTML = printContents;
+             window.print();
+             document.body.innerHTML = originalContents;
+
+             document.getElementById("printbtn").style.display = 'block';
+
+    }
     
 });

@@ -4,7 +4,8 @@
 	<title ng-bind="myTitle"></title>
 	<link rel="stylesheet" type="text/css" href="../css/libs/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
-	<script src="../js/libs/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 </head>
 <body>
 <header class="header1">
@@ -74,17 +75,22 @@
   </div>
 
   <div class="col-sm-6">
-    <div class="card">
-        <h5 class="card-header text-center">Bill</h5>
+    <div class="card" id="printId">
+        <h5 class="card-header text-center">
+        Bill</h5>
       <div class="card-body">
 
       <div class="card-title row">
-      	<span class="col-sm-4 "><h6>Bill No : {{bno}}</h6></span>
-      	<span class="col-sm-4 "><h6>Date : {{date | date:'yyyy-MM-dd'}}</h6></span>
-      	<span class="col-sm-4"><h6>Token No : {{tno}}</h6></span>
-      
+      	<span class="col-sm-3 ">Bill No : {{bno}}</span>
+      	<span class="col-sm-3 ">Date : {{date | date:'yyyy-MM-dd'}}</span>
+      	<span class="col-sm-3">Token No : {{tno}}</span>
+        <span class="col-sm-3">
+          <button  href="#" id="printbtn" ng-click="printMe()">
+          <i class="fa fa-print" aria-hidden="true"></i>
+          </button>
+        </span>
       </div>
-      <table class="table">
+      <table class="table table-hover table-responsive">
   <thead>
     <tr>
       <th>Sr No</th>
@@ -131,10 +137,12 @@
   </tbody>
 </table>
 		<div>
-        	<a href="#" class="btn btn-primary">Print</a>
+        	
+         
       	</div>
       </div>
-    </div>
+    </div>  <!--print me-->
+	
   </div>
 
   
@@ -145,6 +153,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 
 <script src="../js/libs/bootstrap.min.js"></script>
+<script src="../js/libs/angular.min.js"></script>
 
 <script src="../js/index.js"></script>
 </body>

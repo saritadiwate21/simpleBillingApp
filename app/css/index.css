@@ -19,3 +19,8 @@ div a{
 	margin-left: 250px;
 	margin-bottom: 20px;	
 }
+#printbtn{
+	font-size: 20px;
+	display: inline;
+}
+
